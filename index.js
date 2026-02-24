@@ -110,7 +110,23 @@ function checkAnswer(selected) {
 function showResults() {
   quizScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
-  document.getElementById('stat-text').innerText = `Ваш счет: ${score} из ${quizData.size}`;
+
+  const statText = document.getElementById('stat-text');
+  const moodImg = document.getElementById('result-mood-img');
+
+  statText.innerText = `Ваш счет: ${score} из ${quizData.size}`;
+
+
+  if (score <= 3) {
+
+    moodImg.src = "https://memchik.ru/images/templates/plachet_ot_radosti.jpg";
+  } else if (score <= 6) {
+
+    moodImg.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfuT7IEBcx7YULaNK2Lekb44MAGwFbkNEEaw&s";
+  } else {
+
+    moodImg.src = "https://images.meme-arsenal.com/92ef712a5676879c33188a582635547f.jpg";
+  }
 
   if (wrongAnswers.size > 0) {
     const btn = document.getElementById('review-btn');
